@@ -1,7 +1,7 @@
 class TabLink {
   constructor(tabElement){
     // assign this.tabElement to the tabElement DOM reference
-    this.tabElement = this.tabElement;
+    this.tabElement = tabElement;
     
     // Get the `data-tab` value from this.tabElement and store it here
     this.tabData = this.tabElement.dataset.tab; 
@@ -13,10 +13,10 @@ class TabLink {
     // Check to see if this.tabData is equal to 'all'
     if(this.tabData === "all") {
       // If `all` is true, select all cards regardless of their data attribute values
-      this.cards = document.querySelector(".cards");
+      this.cards = document.querySelectorAll(".cards");
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
-      this.cards = this.tabData;
+      this.cards = document.querySelector(".cards[data-tab=`${this.tabData}`]");
     }
     //<- Delete this comment block when you work on the if statement
 
